@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleTaskManager.ViewModels"
+             x:Class="SimpleTaskManager.Views.TaskDetailsPage">
+    <ContentPage.BindingContext>
+        <local:TaskDetailsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                <StackLayout Margin="0" Padding="24,24,24,24" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <ImageButton Margin="0" Padding="0" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent" Source="back_dodgerblue" Command="{Binding BackCommand}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label Margin="0" Padding="0" FontSize="16" FontAttributes="Bold" Text="Details" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                    <Label Margin="0" Padding="0" FontSize="16" FontAttributes="Bold" TextColor="DodgerBlue" Text="Edit" HorizontalOptions="End" VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EditCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+
+            <Label HeightRequest="1" BackgroundColor="Black" Opacity="0.1" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+            <StackLayout Orientation="Vertical" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <StackLayout Margin="24,8,24,8" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Label Margin="0,0,1,0" Text="Title:" FontSize="14" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Margin="0,1,0,0" Text="{Binding Model.Title}" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                </StackLayout>
+                
+                <StackLayout Margin="24,8,24,8" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Label Margin="0,0,1,0" Text="Status:" FontSize="14" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Margin="0,1,0,0" Text="{Binding Model.Status}" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout Margin="24,8,24,8" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Label Margin="0,0,1,0" Text="Created:" FontSize="14" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Margin="0,1,0,0" Text="{Binding Model.CreationDate}" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout Margin="24,8,24,8" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Label Margin="0,0,1,0" Text="Description:" FontSize="14" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Label Margin="0,1,0,0" Text="{Binding Model.Description}" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                </StackLayout>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
