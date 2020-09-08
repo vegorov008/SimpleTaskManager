@@ -44,6 +44,24 @@ namespace SimpleTaskManager.Views
             }
         }
 
+        private void MenuItem_RemoveClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sender is MenuItem menuItem)
+                {
+                    if (menuItem.BindingContext is TaskModelViewModel viewModel)
+                    {
+                        ViewModel.RemoveTask(viewModel);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandler.HandleException(ex);
+            }
+        }
+
         protected override void OnAppearing()
         {
             try
@@ -70,6 +88,4 @@ namespace SimpleTaskManager.Views
             }
         }
     }
-
-    
 }

@@ -42,6 +42,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Clicked="MenuItem_RemoveClicked" IsDestructive="True" Text="Remove" />
+                                </ViewCell.ContextActions>
                                 <Frame Margin="24,8,24,8" Padding="16,4,16,8" BackgroundColor="#fafafa" HasShadow="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <StackLayout Margin="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                         <StackLayout Margin="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">

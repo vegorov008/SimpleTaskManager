@@ -19,6 +19,7 @@ namespace SimpleTaskManager.ViewModels
 
         public ObservableCollection<TaskModelViewModel> Items { get; }
         public Command AddNewTaskCommand { get; }
+        public Command RemoveTaskCommand { get; set; }
         public Command<TaskModelViewModel> ItemTapped { get; }
 
         public TasksListViewModel()
@@ -80,6 +81,26 @@ namespace SimpleTaskManager.ViewModels
             try
             {
                 await Navigation.PushModalAsync(new AddNewTaskPage());
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandler.HandleException(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        public async void RemoveTask(TaskModelViewModel viewModel)
+        {
+            try
+            {
+                if (viewModel != null)
+                {
+                    Items.Remove(viewModel);
+                    await _dataStore.DeleteItemAsync(viewModel.Model.Id);
+                }
             }
             catch (Exception ex)
             {
